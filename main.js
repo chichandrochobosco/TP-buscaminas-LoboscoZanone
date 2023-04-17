@@ -77,6 +77,17 @@ function ponerMinasTablero()
   console.log(columna + " fila: " + fila);
 
   }
+  //let j=0;
+  //while(j<10){
+  //  let columna = Math.floor(Math.random()*10);
+  //   let fila = Math.floor(Math.random()*10);
+  //   if(){
+  // 
+  //   }
+  //   ponerMinaCasillero(columna , fila  );
+  //   console.log(columna + " fila: " + fila);
+  //  j++;
+  // }
 
 }
 
@@ -92,10 +103,36 @@ function mostrarMinas()
   
 }
 
-function contarMinasAlrededor(columna, fila)
+function contarMinasAlrededor(columnaPresionada, filaPresionada)
 {
+  let k=0;
   
-  return 9;   //Esto hace que SIEMPRE cuente 9 minas alrededor. Modificar/completar
+  if(tieneMinaCasillero((columnaPresionada+1), (filaPresionada))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada-1), (filaPresionada))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada-1), (filaPresionada-1))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada), (filaPresionada-1))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada+1), (filaPresionada-1))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada-1), (filaPresionada+1))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada), (filaPresionada+1))){
+    k++;
+  }
+  if(tieneMinaCasillero((columnaPresionada+1), (filaPresionada+1))){
+    k++;
+  }
+
+  return k;   //Esto hace que SIEMPRE cuente 9 minas alrededor. Modificar/completar
 }
 function numrandom(){
 
