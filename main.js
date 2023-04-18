@@ -69,26 +69,18 @@ function ganoElJuego()
 //punto 12
 function ponerMinasTablero()
 {
-  matrizMinas=[10, 10];
-  for(let i=0;i<10;i++){
-  let columna = Math.floor(Math.random()*10);
-  let fila = Math.floor(Math.random()*10);
-  ponerMinaCasillero(columna , fila  );
-  console.log(columna + " fila: " + fila);
-
-  }
-  //let j=0;
-  //while(j<10){
-  //  let columna = Math.floor(Math.random()*10);
-  //   let fila = Math.floor(Math.random()*10);
-  //   if(){
-  // 
-  //   }
-  //   ponerMinaCasillero(columna , fila  );
-  //   console.log(columna + " fila: " + fila);
-  //  j++;
-  // }
-
+  let j=0;
+  while(j<10){
+     let columna = Math.floor(Math.random()*10);
+     let fila = Math.floor(Math.random()*10);
+     if(!(tieneMinaCasillero(columna, fila))){
+      ponerMinaCasillero(columna , fila  );
+     }else{
+      continue;
+     }
+     console.log(columna + " fila: " + fila);
+    j++;
+   }
 }
 
 function mostrarMinas()
@@ -105,34 +97,16 @@ function mostrarMinas()
 
 function contarMinasAlrededor(columnaPresionada, filaPresionada)
 {
-  let k=0;
+  let cont = 0;
+  let arrayColumnas = [1, -1, -1, 0, 1, -1, 0, 1];
+  let arrayFilas = [0, 0, -1, -1, -1, 1, 1, 1];
+  for(let i = 0; i < 8; i++){
+    if(tieneMinaCasillero((arrayColumnas[i]+columnaPresionada), (arrayFilas[i]+filaPresionada))){
+      cont++;
+    }
+  }
+  return cont;
   
-  if(tieneMinaCasillero((columnaPresionada+1), (filaPresionada))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada-1), (filaPresionada))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada-1), (filaPresionada-1))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada), (filaPresionada-1))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada+1), (filaPresionada-1))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada-1), (filaPresionada+1))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada), (filaPresionada+1))){
-    k++;
-  }
-  if(tieneMinaCasillero((columnaPresionada+1), (filaPresionada+1))){
-    k++;
-  }
-
-  return k;   //Esto hace que SIEMPRE cuente 9 minas alrededor. Modificar/completar
 }
 function numrandom(){
 
