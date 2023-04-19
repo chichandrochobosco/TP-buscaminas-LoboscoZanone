@@ -64,7 +64,7 @@ function ganoElJuego()
   if(casillerosSinDescubrir==CANTIDAD_MINAS){
     return true;
   }
-  return false;   //Esto hace que NUNCA gane el juego. Modificar/completar
+  return false;   
 }
 //punto 12
 function ponerMinasTablero()
@@ -108,6 +108,4 @@ function contarMinasAlrededor(columnaPresionada, filaPresionada)
   return cont;
   
 }
-function numrandom(){
 
-}
